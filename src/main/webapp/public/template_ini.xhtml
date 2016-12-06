@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+  
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <h:outputStylesheet library="css" name="bootstrap-theme.min.css" />
+    <h:outputStylesheet library="css" name="bootstrap-theme.css" />
+    <h:outputStylesheet library="css" name="bootstrap.css" />
+    <h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="awesome" name="css/font-awesome.css" />
+
+    <h:outputScript library="js" name="jquery-2.1.4.min.js" />
+    <h:outputScript library="js" name="bootstrap.min.js" />
+    <h:outputScript library="js" name="bootstrap.js" />
+    
+      
+    <script>
+        $a = jQuery.noConflict();
+        $a(document).ready(function() {
+            var heightWindow = $a(window).height();
+            var heightBody   = document.body.clientHeight;
+            if(heightWindow > heightBody){
+                $a("#footer").css('position', 'fixed');
+                $a("#footer").css('bottom', '0');
+            }                
+        });
+    </script>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$(function(){
+			$.mask.addPlaceholder("~","[+-]");
+			$(".inputel").mask("(99) 9999-9999");
+			$(".form\\:telefone").mask("(99) 9999-9999"); 
+			$(".cep").mask("99999-999");
+			$(".data").mask("99/99/9999");
+			$(".inputcpf").mask("999.999.999-99");
+			$(".cnpj").mask("99.999.999/9999-99");
+		});
+	});	
+	</script>
+</h:head>
+<h:body>
+    <div>
+        <ui:insert name="nav_bar">
+          
+        </ui:insert>
+    </div>
+
+	<div>
+		<ui:insert name="container">
+
+		</ui:insert>
+	</div>
+
+	<div id="footer" style="padding-top:50px; margin-top:22%; width:100%; background-color: #333;" role="footer">
+        <ui:insert name="nav_footer">
+           <ui:include src="/public/footer.xhtml"></ui:include>
+        </ui:insert>
+    </div>    
+</h:body>
+</html>

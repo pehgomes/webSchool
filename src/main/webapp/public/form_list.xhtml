@@ -1,0 +1,70 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" xmlns:a4j="http://richfaces.org/a4j">
+
+	<h:form styleClass="form-inline">
+		<p:panel style="width: 90%; margin-left: 5%">
+		
+				<div class="form-group">
+					<h:inputText value="#{alunoBean.aluno.nome}" styleClass="form-control" pt:placeholder="Digite o Nome do aluno"/>
+				</div>	
+			<h:commandButton styleClass="btn btn-primary" style="margin-left:2%" value="buscar" actionListener="#{alunoBean.autoCompleteNomeAluno}"/>
+		
+			<p:dataTable style="width: 950 px; margin-top: 5%" value="#{alunoBean.listAlunos}" var="aluno"  rendered="true">
+				<p:column headerText="Nome">
+					<p:outputLabel value="#{aluno.nome}"/>
+				</p:column>
+				
+				<p:column headerText="CPF">
+					<p:outputLabel value="#{aluno.cpf}"/>
+				</p:column>
+				
+				<p:column headerText="RG">
+					<p:outputLabel value="#{aluno.rg}" />
+				</p:column>
+
+				<p:column headerText="CEP">
+					<p:outputLabel value="#{aluno.cep}" />
+				</p:column>
+
+				<p:column headerText="Endereco">
+					<p:outputLabel value="#{aluno.endereco}" />
+				</p:column>
+
+				<p:column headerText="Email">
+					<p:outputLabel value="#{aluno.email}" />
+				</p:column>
+
+				<p:column headerText="Matricula">
+					<p:outputLabel value="#{aluno.matricula}" />
+				</p:column>
+		
+				<p:column headerText="Mãe">
+					<p:outputLabel value="#{aluno.nomeMae}" />
+				</p:column>
+	
+				<p:column headerText="Estado Cvl.">
+					<p:outputLabel value="#{aluno.tipoEstadoCivil}" />
+				</p:column>
+				
+				<p:column>
+					<center>
+					 <h:commandButton action="/public/modal.xhtml" value="Editar" styleClass="btn btn-warning" >
+					 	<f:setPropertyActionListener value="#{aluno}" target="#{alunoBean.aluno}"/>
+					 </h:commandButton>
+					</center>
+				</p:column>
+				<p:column>
+					<h:commandButton styleClass="btn btn-danger" value="Deletar" actionListener="#{alunoBean.defaultDeletAluno(row)}" />
+				</p:column>
+				
+				<f:facet name="footer">
+					#{alunoBean.mensagemTable}
+				</f:facet>
+			</p:dataTable>
+		</p:panel>
+	</h:form>
+</ui:composition>

@@ -1,0 +1,52 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+	<h:form styleClass="form-group">
+		<p:panel style="width:80%; margin-left: 5%; margin-top:10%">
+			<div class="form-group">
+				<h:inputText value="#{alunoBean.aluno.nome}" styleClass="form-control"/>
+			</div>
+			<div class="form-group">
+				<h:inputText value="#{alunoBean.aluno.cpf}" styleClass="form-control"/>
+			</div>
+			<div class="form-group">
+				<h:inputText value="#{alunoBean.aluno.rg}" styleClass="form-control"/>
+			</div>
+			<div class="form-group">
+				<h:inputText value="#{alunoBean.aluno.cep}" styleClass="form-control"/>
+			</div>
+			<div class="form-group">
+				<h:inputText value="#{alunoBean.aluno.endereco}" styleClass="form-control"/>
+			</div>
+			<div class="form-group">
+				<h:inputText value="#{alunoBean.aluno.email}" styleClass="form-control"/>
+			</div>
+			<div class="form-group">
+				<h:inputText value="#{alunoBean.aluno.matricula}" styleClass="form-control"/>
+			</div>
+			<div class="form-group">
+				<h:inputText value="#{alunoBean.aluno.nomeMae}" styleClass="form-control"/>
+			</div>
+			<h:selectOneMenu  id="inputidcivil" value="#{alunoBean.aluno.tipoEstadoCivil}"  class="form-control">
+				<f:selectItem itemLabel="Selecione"/>
+					<f:selectItems value="#{alunoBean.estadoCivis}"  var="a" itemValue="#{a}"
+					itemLabel="#{a.label}"/>
+			</h:selectOneMenu>
+		<br/>
+		<h:commandButton styleClass="btn btn-success" value="Confirmar" actionListener="#{alunoBean.defaulEditAluno}" 
+		style="margin-left:1%" />
+		
+		<h:commandButton styleClass="btn btn-warning" value="Voltar"  action="/public/list.xhtml"
+		style="margin-left:1%" />
+		
+		
+		</p:panel>
+		
+		
+	</h:form>
+
+</ui:composition>

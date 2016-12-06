@@ -1,0 +1,13 @@
+<ui:composition template="/public/template_ini.xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <ui:define name="nav_bar">
+        <ui:include src="top_bar_register.xhtml" />
+    </ui:define>
+  
+    <ui:define name="container">
+        <div class="row" style="padding-top: 60px;">
+            <ui:include src="form_register.xhtml" />
+        </div>
+    </ui:define>
+</ui:composition>

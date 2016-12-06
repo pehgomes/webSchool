@@ -1,0 +1,211 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:a4j="http://richfaces.org/a4j">
+    
+    
+    
+    
+    <div class="col-md-8">
+    	
+    	<script type="text/javascript">
+    	jQuery(function($){   
+    	    $(".date").mask("99/99/9999");   
+    	    $(".inputel").mask("(999) 999-9999");   
+    	    $(".tin").mask("99-9999999");   
+    	    $(".ssn").mask("999-99-9999");   
+    	});
+    	
+    	
+    	</script>
+        
+        <h2>#{bundle.lbl_cadastre}!</h2>
+        <br />
+        <h:form id="formulario" class="form-horizontal" role="form" prependId="false">
+        
+            <div class="form-group">
+                <h:outputLabel for="inputuser" value="#{bundle.lbl_usuario}"
+                    styleClass="col-sm-3 control-label" />
+                <div class="col-sm-6">
+                    <h:inputText value="#{alunoBean.aluno.nome}" class="form-control"
+                        id="inputuser" required="true"
+                        pt:placeholder="#{bundle.lbl_placeholder_busca}"
+                        requiredMessage="#{bundle.lbl_campoObigatorio}"
+                        validatorMessage="#{bundle.lbl_valid_msg_usu}"
+                        converter="cpfConverter" >
+                        <f:validateLength minimum="6" maximum="20" />
+                        <f:ajax event="blur" render="m_inputuser" />
+                    </h:inputText>
+                    <h:message id="m_inputuser" for="inputuser" style="color:#D74937;" />
+                </div>
+            </div>
+
+			<div class="form-group">
+				<h:outputLabel for="inputcpf" value="#{bundle.lbl_cpf}"
+					styleClass="col-sm-3 control-label" />
+					
+				<div class="col-sm-6">
+					<h:inputText  value="#{alunoBean.aluno.cpf}" class="form-control"
+						id="inputcpf" required="true" maxlength="11"
+						pt:placeholder="#{bundle.lbl_placeholder_busca_cpf}"
+                        requiredMessage="#{bundle.lbl_campoObigatorio}"
+                        validatorMessage="#{bundle.lbl_valid_msg_cpf}">
+						<f:validateLength minimum="11"/>
+						<f:ajax event="blur" render="m_inputcpf"/>					
+					</h:inputText>
+					<h:message id="m_inputcpf" for="inputcpf" style="color:#D74937;" />
+				</div>	
+			</div>
+			
+			<div class="form-group">
+				<h:outputLabel for="inputrg" value="#{bundle.lbl_rg}"
+					styleClass="col-sm-3 control-label" />
+					
+				<div class="col-sm-6">
+					<h:inputText value="#{alunoBean.aluno.rg}" class="form-control"
+						id="inputrg" required="true" maxlength="13"
+						pt:placeholder="#{bundle.lbl_placeholder_busca_rg}"
+                        requiredMessage="#{bundle.lbl_campoObigatorio}"
+                        validatorMessage="#{bundle.lbl_valid_msg_rg}">
+						<f:validateLength minimum="13"/>	
+						<f:ajax event="blur" render="m_inputrg"/>					
+					</h:inputText>
+					<h:message id="m_inputrg" for="inputrg" style="color:#D74937;" />
+				</div>	
+			</div>
+
+			<div class="form-group">
+				<h:outputLabel for="inputcep" value="#{bundle.lbl_cep}"
+					styleClass="col-sm-3 control-label" />
+					
+				<div class="col-sm-6">
+					<h:inputText value="#{alunoBean.aluno.cep}" class="form-control"
+						id="inputcep" required="true" maxlength="8"
+						pt:placeholder="#{bundle.lbl_placeholder_busca_cep}"
+						requiredMessage="#{bundle.lbl_campoObigatorio}"
+						validatorMessage="#{bundle.lbl_valid_msg_cep}">
+						<f:validateLength minimum="8" />	
+						<f:ajax event="blur" render="m_inputcep"/>					
+					</h:inputText>
+					<h:message id="m_inputcep" for="inputcep" style="color:#D74937;" />
+				</div>	
+			</div>
+
+			<div class="form-group">
+				<h:outputLabel for="inputender" value="#{bundle.lbl_endereco}"
+					styleClass="col-sm-3 control-label" />
+					
+				<div class="col-sm-6">
+					<h:inputText value="#{alunoBean.aluno.endereco}" class="form-control"
+						id="inputender" required="true"
+						pt:placeholder="#{bundle.lbl_placeholder_busca_endereco}"
+						requiredMessage="#{bundle.lbl_campoObigatorio}">
+						<f:ajax event="blur" render="m_inputender"/>					
+					</h:inputText>
+					<h:message id="m_inputender" for="inputender" style="color:#D74937;" />
+				</div>	
+			</div>
+
+			<div class="form-group">
+				<h:outputLabel for="inputemail" value="#{bundle.lbl_email}"
+					styleClass="col-sm-3 control-label" />
+					
+				<div class="col-sm-6">
+					<h:inputText value="#{alunoBean.aluno.email}" class="form-control"
+						id="inputemail" required="true"
+						pt:placeholder="#{bundle.lbl_placeholder_busca_email}"
+						requiredMessage="#{bundle.lbl_campoObigatorio}">
+						<f:ajax event="blur" render="m_inputemail"/>					
+					</h:inputText>
+					<h:message id="m_inputemail" for="inputemail" style="color:#D74937;" />
+				</div>	
+			</div>
+			
+			<div class="form-group">
+				<h:outputLabel for="inputmatri" value="#{bundle.lbl_matricula}"
+					styleClass="col-sm-3 control-label" />
+					
+				<div class="col-sm-6">
+					<h:inputText value="#{alunoBean.aluno.matricula}" class="form-control"
+						id="inputmatri" required="true" maxlength="15"
+						requiredMessage="#{bundle.lbl_campoObigatorio}">
+						<f:ajax event="blur" render="m_inputmatri"/>					
+					</h:inputText>
+					<h:message id="m_inputmatri" for="inputmatri" style="color:#D74937;" />
+				</div>	
+			</div>
+			
+			<div class="form-group">
+				<h:outputLabel for="inputmae" value="#{bundle.lbl_nomeMae}"
+					styleClass="col-sm-3 control-label" />
+					
+				<div class="col-sm-6">
+					<h:inputText value="#{alunoBean.aluno.nomeMae}" class="form-control"
+						id="inputmae" required="true"
+						requiredMessage="#{bundle.lbl_campoObigatorio}">
+						<f:ajax event="blur" render="m_inputmae"/>					
+					</h:inputText>
+					<h:message id="m_inputmae" for="inputmae" style="color:#D74937;" />
+				</div>	
+			</div>
+			
+			<div class="form-group">
+				<h:outputLabel for="inputidcivil" value="#{bundle.lbl_civil}"
+					styleClass="col-sm-3 control-label" />
+					
+				<div class="col-sm-6">
+					<h:selectOneMenu  id="inputidcivil" value="#{alunoBean.aluno.tipoEstadoCivil}"  class="form-control">
+						<f:selectItem itemLabel="Selecione"/>
+						<f:selectItems value="#{alunoBean.estadoCivis}"  var="a" itemValue="#{a}"
+						itemLabel="#{a.label}"/>
+					</h:selectOneMenu>
+				</div>	
+			</div>
+			
+			
+
+			<div class="form-group">
+				<h:outputLabel for="inputel" value="#{bundle.lbl_telefone}"
+					styleClass="col-sm-3 control-label" />
+					
+				<div class="col-sm-6">
+					<h:inputText value="#{alunoBean.aluno.telefone}" class="form-control"
+						id="inputel" required="true" maxlength="13"
+						requiredMessage="#{bundle.lbl_campoObigatorio}">
+						<f:ajax event="blur" render="m_inputel"/>					
+					</h:inputText>
+					<h:message id="m_inputel" for="inputel" style="color:#D74937;" />
+				</div>	
+		</div>
+			
+<!-- 		ACEITAR TERMOS -->
+			<div class="form-group">
+                <div class="col-sm-offset-3 col-sm-10">
+                    <div class="checkbox">
+                        <h:outputLabel>
+                            <h:selectBooleanCheckbox
+                                requiredMessage="#{bundle.lbl_termos_servico}"
+                                id="terms">
+                                <f:validator validatorId="checkBoxValidator" />
+                                <f:ajax event="blur" render="m_terms" />
+                            </h:selectBooleanCheckbox>
+                                   #{bundle.lbl_termos_servico}                                    
+                                </h:outputLabel>
+                    </div>
+                    <h:message id="m_terms" for="terms" style="color:#D74937;" />
+                </div>
+            </div>     
+       
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-10">
+                    <h:commandButton action="#{alunoBean.save()}" value="#{bundle.lbl_proxima_etapa}"
+                        styleClass="btn btn-default" />
+                </div>
+            </div>
+
+		</h:form>
+    </div>
+</ui:composition>

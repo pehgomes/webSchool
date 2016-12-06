@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+	<div class="jumbotron" style="padding-bottom: 12px; padding-top: 32px;">
+		<div class="container">
+			<div class="row" style="padding-top: 30px;">
+				<div class="col-md-3"></div>
+				<div class="col-md-6">
+					<h:form id="formulario" prependId="false">
+							<div class="input-group">
+								<p:inputText id="inputNome" value="#{alunoBean.aluno.nome}"
+									styleClass="form-control" >
+
+									<p:ajax event="keyup" delay="1000"
+										onstart="return keyupDelayPj(this,cfg)" update="@all"
+										listener="#{alunoBean.autoCompleteNomeAluno}" 
+										pt:placeholder="Ultimo Aluno Buscado ..." />
+
+								</p:inputText>
+
+								<span class="input-group-btn"> <h:commandButton
+										action="list.xhtml" value="buscar" styleClass="btn btn-default" />
+								</span>
+
+							</div>
+
+					</h:form>
+				</div>
+				<div class="col-md-3"></div>
+			</div>
+		</div>
+
+	</div>
+</ui:composition>
